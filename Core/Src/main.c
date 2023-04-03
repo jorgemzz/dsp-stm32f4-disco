@@ -23,6 +23,7 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include <stdio.h>
+#include "stm32f4_audio.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -109,6 +110,11 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
+
+  /* Initialize Audio Device */
+  if(audio_init(OUTPUT_DEVICE_AUTO, 70, 8000) != 0){
+	  Error_Handler();
+  }
   while (1)
   {
     /* USER CODE END WHILE */
